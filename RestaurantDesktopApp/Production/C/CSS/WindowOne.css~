@@ -1,0 +1,30 @@
+window {
+    background-image: none;
+    background-color: white;
+}
+
+button {
+    background-image: none;
+    background-color: white;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1.98px;
+    border-color: black;
+    color: black;
+    font-family: "Sans";
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #E2F3FF;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.51);
+
+}
+
+button:active {
+    background-color: #B3CDE0;
+    box-shadow: none;
+
+}
+
+
