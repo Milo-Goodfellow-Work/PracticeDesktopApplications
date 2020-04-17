@@ -1,15 +1,15 @@
 #include <gtk/gtk.h>
-/*
-struct manyWidgets {
-  GtkWidget widget1, widget2;
-};
-*/
 
-void open_window(GtkWidget *windowChange)
+struct manyWidgets {
+  GtkWidget *widget1;
+  GtkWidget *widget2;
+
+};
+
+void open_window(struct manyWidgets windowChange)
 {
-  gtk_main_quit();
-  gtk_widget_show_all(windowChange);
-  gtk_main();
+  gtk_widget_hide(windowChange.widget1);
+  gtk_widget_show_all(windowChange.widget2);
   
 }
 
@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
   //Any internal objects
   GObject *exitBtn;
   GObject *orderBtn;
+  GObject *backBtn;
 
   //Error handling on file import
   GError *error = NULL;
@@ -34,9 +35,6 @@ int main(int argc, char *argv[])
   GtkStyleContext *context;
   GtkCssProvider *provider;
 
-  //Passing multiple widgets to a function
-  //struct manyWidgets windowChange;
-  
   //Initialize GTK
   gtk_init(&argc, &argv);
 
@@ -81,10 +79,14 @@ int main(int argc, char *argv[])
   exitBtn = gtk_builder_get_object(builder, "ExitButton");
   g_signal_connect(exitBtn, "clicked", G_CALLBACK(gtk_main_quit), NULL);
 
+  //Passing multiple widgets to a function using a struct
+  struct manyWidgets openCloseSetToRestaurant = {window, windowRestaurant};
   orderBtn = gtk_builder_get_object(builder, "OrderButton");
-  
-  g_signal_connect_swapped(orderBtn, "clicked", G_CALLBACK(open_window), windowRestaurant);
-  
+  g_signal_connect_swapped(orderBtn, "clicked", G_CALLBACK(open_window), &openCloseSetToRestaurant);
+
+  struct manyWidgets openCloseSetToHome = {windowRestaurant, window};
+  backBtn = gtk_builder_get_object(builder, "BackButton");
+  g_signal_connect_swapped(backBtn, "clicked", G_CALLBACK(open_window), &openCloseSetToHome);
   
   //Show the first window
   gtk_widget_show_all(window);
