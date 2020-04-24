@@ -2,56 +2,88 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkWindow" id="DialogueWindow">
+  <object class="GtkWindow" id="GalleryWindow">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
-    <property name="default_width">250</property>
-    <property name="default_height">410</property>
-    <child type="titlebar">
+    <property name="default_width">420</property>
+    <property name="default_height">964</property>
+    <child>
       <placeholder/>
     </child>
     <child>
-      <object class="GtkFixed" id="DialogueFixed">
+      <object class="GtkFixed" id="GalleryFixed">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkButton" id="DialogueCloseButton">
-            <property name="label" translatable="yes">Close</property>
+          <object class="GtkLabel" id="HeaderTextTwo">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">GALLERY</property>
+            <attributes>
+              <attribute name="font-desc" value="Impact 78"/>
+              <attribute name="foreground" value="#000000000000"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">12</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="BurritoGalleryImage">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">..\Images\GalleryImageBurrito.png</property>
+          </object>
+          <packing>
+            <property name="x">28</property>
+            <property name="y">160</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="SaladGalleryImage">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">..\Images\GalleryImageSalad.png</property>
+          </object>
+          <packing>
+            <property name="x">28</property>
+            <property name="y">390</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="LemonGalleryImage">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">..\Images\GalleryImageLemonBars.png</property>
+          </object>
+          <packing>
+            <property name="x">28</property>
+            <property name="y">620</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="GalleryBackButton">
+            <property name="label">gtk-go-back</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
           </object>
           <packing>
-            <property name="x">16</property>
-            <property name="y">325</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="YourOrderLabel">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Your Order Was:</property>
-          </object>
-          <packing>
-            <property name="x">16</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkTextView">
-            <property name="width_request">230</property>
-            <property name="height_request">225</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="editable">False</property>
-            <property name="accepts_tab">False</property>
-          </object>
-          <packing>
-            <property name="x">16</property>
-            <property name="y">90</property>
+            <property name="x">28</property>
+            <property name="y">850</property>
           </packing>
         </child>
       </object>
@@ -61,7 +93,7 @@
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="default_width">420</property>
-    <property name="default_height">864</property>
+    <property name="default_height">964</property>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -133,7 +165,21 @@
                   </object>
                   <packing>
                     <property name="x">18</property>
-                    <property name="y">338</property>
+                    <property name="y">450</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="GalleryButton">
+                    <property name="label" translatable="yes">GALLERY</property>
+                    <property name="width_request">384</property>
+                    <property name="height_request">78</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">18</property>
+                    <property name="y">128</property>
                   </packing>
                 </child>
                 <style>
@@ -156,7 +202,7 @@
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="default_width">420</property>
-    <property name="default_height">864</property>
+    <property name="default_height">964</property>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -194,7 +240,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="CalamariCheckBox">
+          <object class="GtkCheckButton" id="SaladCheckBox">
             <property name="label" translatable="yes">Salad</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
@@ -237,7 +283,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="CrunchWrapCheckBox">
+          <object class="GtkCheckButton" id="CrunchCheckBox">
             <property name="label" translatable="yes">Crunch Wrap</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
@@ -252,8 +298,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="BurritoCheckBox1">
-            <property name="label" translatable="yes">Soy-Rizo Burrito</property>
+          <object class="GtkCheckButton" id="BurritoCheckBox">
+            <property name="label" translatable="yes">Burrito</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
@@ -268,7 +314,7 @@
         </child>
         <child>
           <object class="GtkCheckButton" id="ShrimpCheckBox">
-            <property name="label" translatable="yes">Plant-Based Shrimp</property>
+            <property name="label" translatable="yes">Shrimp</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
@@ -317,8 +363,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="PeanutButterCheckBox">
-            <property name="label" translatable="yes">Date Brownies</property>
+          <object class="GtkCheckButton" id="DateCheckBox">
+            <property name="label" translatable="yes">Brownies</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
@@ -332,7 +378,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="PeanutButterCheckBox1">
+          <object class="GtkCheckButton" id="LemonCheckBox">
             <property name="label" translatable="yes">Lemon Bars</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
@@ -355,7 +401,21 @@
             <property name="pixbuf">..\Images\BackgroundImg2.png</property>
           </object>
           <packing>
-            <property name="y">591</property>
+            <property name="y">692</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="SubmitButton">
+            <property name="label" translatable="yes">SUBMIT ORDER</property>
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">116</property>
+            <property name="y">775</property>
           </packing>
         </child>
       </object>
