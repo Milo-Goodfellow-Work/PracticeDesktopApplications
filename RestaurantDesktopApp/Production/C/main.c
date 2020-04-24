@@ -2,6 +2,8 @@
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
 
 //Structure formed of two GTKWidgets to hold window swaps
 struct manyWidgets {
@@ -25,7 +27,7 @@ void final_order(GtkToggleButton *finalOrders[7])
   char initialLabelSet[1000];
   //Assign that strings first position to zero in order to resolve UTF errors
   initialLabelSet[0] = 0;
-
+  
   //Create the final dialogue window and assign it
   GtkDialog *finalMessage;
   finalMessage = GTK_DIALOG(gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_NONE, NULL));
@@ -33,15 +35,16 @@ void final_order(GtkToggleButton *finalOrders[7])
   //Cycle over the food labels
   //If a food option is chosen, save it to the food options string
   strcat(initialLabelSet, "Your order was saved and is as follows:\n");
-  for(int i; i < 7; i++)
-  {   
+  for(int i = 0; i < 7; i++)
+  {
     if(gtk_toggle_button_get_active(finalOrders[i]))
     {
       strcat(initialLabelSet, gtk_button_get_label(GTK_BUTTON(finalOrders[i])));
       strcat(initialLabelSet, "\n");
+
     } 
   }
-
+  
   //Create a new file and save the order to it
   FILE * fp;
   fp = fopen("Order.txt", "w+");
