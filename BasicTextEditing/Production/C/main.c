@@ -5,7 +5,7 @@
 
 struct manyWidgets {
   GtkWidget *widget1;
-  GtkTextViewWithBuffer *widget2;
+  GtkTextView *widget2;
 
 };
 
@@ -34,8 +34,9 @@ void open_file(struct manyWidgets populateText)
 {
   FILE *fp = fopen("Save.txt", "r");
   char buff[255];
-  gtk_text_view_set_buffer(populateText.widget2, GTK_TEXT_BUFFER(G_CHAR("Test")));
-  populateText.widget2->Buffer.Text = fgets(buff, 255, (FILE*)fp);
+  GtkTextBuffer *buffer = gtk_text_view_get_buffer(populateText.widget2);
+  gchar *bufferText = fgets(buff, 255, (FILE*)fp);
+  gtk_text_buffer_set_text(buffer, bufferText, strlen(bufferText));
   fclose(fp);
   
 }
@@ -89,7 +90,7 @@ int main(int argc, char *argv[])
   //Button handling
   openBtn = gtk_builder_get_object(builder, "OpenButton");
   
-  struct manyWidgets set = {dialog, GTK_TEXT_VIEW_WITH_BUFFER(gtk_builder_get_object(builder, "TextView"))};
+  struct manyWidgets set = {dialog, GTK_TEXT_VIEW(gtk_builder_get_object(builder, "TextView"))};
   g_signal_connect_swapped(openBtn, "clicked", G_CALLBACK(open_file), &set);
 
   saveBtn = gtk_builder_get_object(builder, "SaveButton");
