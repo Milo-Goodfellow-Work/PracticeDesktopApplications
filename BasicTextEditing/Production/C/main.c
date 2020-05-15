@@ -33,7 +33,21 @@ void save_file(struct manyWidgets populateText)
 void open_file(struct manyWidgets populateText)
 {
   FILE *fp = fopen("Save.txt", "r");
+  char *hold;
+  char lineLen[200];
+  int fail;
+  fail = getc(fp);
+  
+  while(!feof(fp))
+  {
+    //fscanf(fp, "%s", lineLen);
+    hold = fgets(lineLen, 200, fp);
+    
+  }
+  
   char buff[255];
+  int line = 0;
+  const char *str_arr[100];
   GtkTextBuffer *buffer = gtk_text_view_get_buffer(populateText.widget2);
   gchar *bufferText = fgets(buff, 255, (FILE*)fp);
   gtk_text_buffer_set_text(buffer, bufferText, strlen(bufferText));
